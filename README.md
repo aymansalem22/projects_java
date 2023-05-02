@@ -27,8 +27,12 @@ Implement the game logic
 #Tasks: 
 
 Task I: Generate the secret number
+
 Task II: Implement the game logic
+
 Task III: Level up the game
+
+
 
 
 Task I: Generate the secret number
