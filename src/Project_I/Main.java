@@ -19,6 +19,9 @@ public class Main {
 		System.out.println("\nYou are playing the game: Guess the Number. "
 				+ "\nYou have unlimited attempts to guess the correct number. \n");
 		while (true) {
+			if (userGuessNumber > 100) {
+				return;
+			}
 			userGuessNumber = takeInput(userGuessNumber);
 			if (userGuessNumber < secret_number) {
 				System.out.println("Your guessed number is smaller.");
@@ -58,10 +61,36 @@ public class Main {
 		System.out.println("Enter a number between 0 to 100\n");
 		if (userInput.hasNextInt()) {
 			guess = userInput.nextInt();
+
+			if (guess > 100 || guess < 0) {
+				System.out.println("you must Enter an integer number between 0 and 100");
+				return takeInput(guess);
+			}
 		} else {
 			System.out.println("Enter a valid integer number between 0 and 100");
 		}
 		return guess;
 
+	}
+
+	public static int takeInputv2(int guess) {
+		Scanner userInput = new Scanner(System.in);
+
+		do {
+			System.out.print("Enter a number between 0 to 100: ");
+
+			if (userInput.hasNextInt()) {
+				guess = userInput.nextInt();
+
+				if (guess < 0 || guess > 100) {
+					System.out.println("Your input is not in valid range.");
+				} else {
+					return guess;
+				}
+			} else {
+				System.out.println("Enter a valid integer number between 0 and 100.");
+				userInput.next();
+			}
+		} while (true);
 	}
 }
