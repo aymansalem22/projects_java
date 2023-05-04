@@ -8,9 +8,7 @@ public class Main {
 		////Let's create a 3x3 character array that represents our tic tac toe board
 		char[][] game_board=new char[3][3];
 		
-		//variables to keep track of players
-		char c='-';
-		boolean p1Turn=true;
+	
 		
 		//Initialize our board with '-'
 		for(int i=0;i<3;i++) {
@@ -21,7 +19,7 @@ public class Main {
 		
 		displayBoard(game_board);
 		
-		System.out.println("\nThe old value of c = '"+c+"'");//just for test
+		
 	
 	}
 	
