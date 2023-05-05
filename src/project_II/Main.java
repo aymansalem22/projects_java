@@ -1,10 +1,12 @@
 package project_II;
 
+import java.util.Scanner;
+
 //Project II: Tic-Tac-Toe
 public class Main {
 
 	public static void main(String[] args) {
-		//// Let's create a 3x3 character array that represents our tic tac toe board
+		//// create a 3x3 character array that represents our tic tac toe board
 		char[][] game_board = new char[3][3];
 
 		// variables to keep track of players
@@ -22,8 +24,38 @@ public class Main {
 
 		System.out.println("\nThe old value of c = '" + c + "'");// just for testing
 		c = checkTurn(c, p1Turn);
-		System.out.println("The new value of c = " + c + "'");// just for testing
+		move(c, game_board);
+	}
 
+	public static void move(char c, char[][] game_board) {
+		// Indexes that correspond to a position on our board
+		int row = 0;
+		int col = 0;
+
+		while (true) {
+			Scanner in = new Scanner(System.in);
+			System.out.println("Enter a row number(0,1, or 2): ");
+			row = in.nextInt();
+			System.out.println("Enter a column number(0,1,or 2): ");
+			col = in.nextInt();
+			// Check if the row and col are 0,1, or 2
+			if (row < 0 || col < 0 || row > 2 || col > 2) {
+				System.out.println("This position is off the bounds of the board! Try again.");
+			}
+			// Check if the position on the board the user entered is empty( has a -) or not
+			else if (game_board[row][col] != '-') {
+				System.out.println("Someone has already made a move at this position! Try again.");
+			}
+
+			// Otherwise, the position is valid so break out of the while loop
+			else {
+				System.out.println("\nInput is valid!");
+				game_board[row][col] = c;
+				System.out.println("\nGame board updated.");
+				return;
+			}
+
+		}
 	}
 
 	public static void displayBoard(char[][] game_board) {
@@ -33,7 +65,8 @@ public class Main {
 		for (int i = 0; i < 3; i++) {
 			// Inner loop will follow the column-major order
 			for (int j = 0; j < 3; j++) {
-				System.out.println(game_board[i][j] + " ");
+				System.out.print(game_board[i][j] + " ");
+				game_board[i][j] = '-';
 			}
 			// This will make a new line after every row
 			System.out.println();
