@@ -26,6 +26,35 @@ public class Main {
 		c = checkTurn(c, p1Turn);
 		move(c, game_board);
 	}
+	
+	public static char winner(char[][] game_board) {
+		
+		//Check all the rows
+		for(int i=0;i<3;i++) {
+			if(game_board[i][0]==game_board[i][1]&&game_board[i][1]=game_board[i][2]&&game_board[i][0] !=' '){
+					return game_board[i][0];
+			}
+		}
+		
+		//Check each column
+		for(int j=0;j<3;j++) {
+			if(game_board[0][j]==game_board[1][j]&&game_board[1][j]==game_board[2][j]&&game_board[0][j] !=' ') {
+				return game_board[0][j];
+			}
+		}
+		
+		//Check the diagonals
+		if(game_board[0][0]==game_board[1][1]&&game_board[1][1]==game_board[2][2]&&game[0][0]!=' ') {
+			return game_board[0][0];
+		}
+		
+		if(game_board[2][0]==game_board[1][1]&&game_board[1][1]==game_board[0][2]&&game_board[2][0]!=' ') {
+			return game_board[2][0];
+		}
+		return ' ';
+	}
+	
+	
 
 	public static void move(char c, char[][] game_board) {
 		// Indexes that correspond to a position on our board
