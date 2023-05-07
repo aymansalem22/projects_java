@@ -54,7 +54,16 @@ public class Main {
 		return ' ';
 	}
 	
-	
+	public static boolean tie(char[][] game_board) {
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				if(game_board[i][j]== '-') {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 	public static void move(char c, char[][] game_board) {
 		// Indexes that correspond to a position on our board
