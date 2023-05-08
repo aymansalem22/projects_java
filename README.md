@@ -1,6 +1,6 @@
 # projects_java
 
-Project I: Guess the Right Number
+## Project I: Guess the Right Number
 
 Rules of the game
 
@@ -18,41 +18,28 @@ We can create this game in a way that the computer will give you the number
  and range in which you have to guess. This project will focus on the use of 
 iterations and conditional statements.
 
-In this project we will:
 
-Generate a random number to be guessed
-Implement the game logic
+##############################################################################
 
+## Project II: Tic-Tac-Toe
 
-#Tasks: 
+Rules for Tic-tac-toe
 
-Task I: Generate the secret number
+   - Tic-tac-toe is played on a 3x3 grid.
 
-Task II: Implement the game logic
+   - There are only two players.
 
-Task III: Level up the game
+   - One player plays with “X”, and the other player plays with “O”. 
+   They play in alternative turns and place an “X” or an “O” in empty positions.
 
+   - The first player to get three of their characters in a row (horizontal), column (vertical), 
+   or diagonal is the winner.
 
+   - The game ends when one player wins, or nobody wins. The latter case means that the game ends in a tie.
 
+Tic-tac-toe in Java
 
-Task I: Generate the secret number
-
-Our task is to generate a random number between 0 and 100 (inclusive). 
-We’ve already created and initialized an int variable secret_number.
- We’ll update its value from 0 to the random number we’ll generate.
-
-Task II: Implement the game logic
-
-We’re provided the code for taking the player’s input, so now we 
-just have to write the code to check whether the number provided 
-by the player is correct or not. If the guess is right, the player wins.
- Otherwise, we’ll give them hints whether the guessed number is smaller 
-or greater than the secret number.
-
-Task III: Level up the game
-
-Now, we want to challenge our players a bit, so we’ll give them only five 
-chances to guess the secret number. Your task is to limit the number of times 
-the user can guess the number. The rest of the conditions are the same.
-
+A complete Tic-tac-toe game can be easily created in Java. The core part of the code includes conditional statements,
+iteration (loops), and 2D arrays. This project will also focus on method implementation in Java. We’ll make this game
+together in this project. First, we’ll create and display the game board and then we’ll implement the logic of the game.
 
