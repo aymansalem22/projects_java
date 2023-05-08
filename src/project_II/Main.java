@@ -20,18 +20,40 @@ public class Main {
 			}
 		}
 
-		displayBoard(game_board);
+		while (true) {
+			displayBoard(game_board);
+			c = checkTurn(c, p1Turn);
+			move(c, game_board);
 
-		System.out.println("\nThe old value of c = '" + c + "'");// just for testing
-		c = checkTurn(c, p1Turn);
-		move(c, game_board);
+			char temp = winner(game_board);
+			if (temp == 'x') {
+				displayBoard(game_board);
+				System.out.println("Player1 (x) has won!");
+				return;
+			} else if (temp == 'o') {
+				displayBoard(game_board);
+				System.out.println("Player2 (o) has won!");
+				return;
+			} else {
+				// If it's a tie or not
+				if (tie(game_board)) {
+					System.out.println("It's a tie!");
+					return;
+				} else {
+					// If player1 is true, make it false, and vice versa; this way, the players
+					// alternate each turn
+					p1Turn = !p1Turn;
+				}
+			}
+		}
+
 	}
-	
+
 	public static char winner(char[][] game_board) {
 		
 		//Check all the rows
 		for(int i=0;i<3;i++) {
-			if(game_board[i][0]==game_board[i][1]&&game_board[i][1]=game_board[i][2]&&game_board[i][0] !=' '){
+			if(game_board[i][0]==game_board[i][1]&&game_board[i][1]==game_board[i][2]&&game_board[i][0] !=' '){
 					return game_board[i][0];
 			}
 		}
@@ -44,7 +66,7 @@ public class Main {
 		}
 		
 		//Check the diagonals
-		if(game_board[0][0]==game_board[1][1]&&game_board[1][1]==game_board[2][2]&&game[0][0]!=' ') {
+		if(game_board[0][0]==game_board[1][1]&&game_board[1][1]==game_board[2][2]&&game_board[0][0]!=' ') {
 			return game_board[0][0];
 		}
 		
@@ -53,11 +75,11 @@ public class Main {
 		}
 		return ' ';
 	}
-	
+
 	public static boolean tie(char[][] game_board) {
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				if(game_board[i][j]== '-') {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (game_board[i][j] == '-') {
 					return false;
 				}
 			}
@@ -87,9 +109,7 @@ public class Main {
 
 			// Otherwise, the position is valid so break out of the while loop
 			else {
-				System.out.println("\nInput is valid!");
 				game_board[row][col] = c;
-				System.out.println("\nGame board updated.");
 				return;
 			}
 
@@ -104,7 +124,7 @@ public class Main {
 			// Inner loop will follow the column-major order
 			for (int j = 0; j < 3; j++) {
 				System.out.print(game_board[i][j] + " ");
-				game_board[i][j] = '-';
+
 			}
 			// This will make a new line after every row
 			System.out.println();
